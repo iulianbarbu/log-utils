@@ -123,7 +123,7 @@ def main():
         },
         {
             "type": "txpool_maintain",
-            "regex": "(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}(?:\.\d{3})?).*maintain txs=\((\d+), (\d+)\) a=(\d+) i=(\d+) views=\[.*\] event=(NewBlock|NewBestBlock|Finalized) {.*} duration=(\d+\.\d+)([µms]+)",
+            "regex": r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}(?:\.\d{3})?).*maintain txs=\((\d+), (\d+)\) a=(\d+) i=(\d+) views=\[.*\] event=(NewBlock|NewBestBlock|Finalized) {.*} duration=(\d+\.\d+)([µms]+)',
             "guard": "maintain txs=",
             "column_names": ["date", "time", "unwatched_txs", "watched_txs", "active_views_count", "inactive_views_count", "event", "duration"],
             "extract_data": lambda match: (

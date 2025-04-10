@@ -21,11 +21,11 @@ if [ ! -f $MAIN/bob.log ]; then
 fi
 
 if [ ! -f $MAIN/start ]; then
-  grep "DEBUG.*validate_transaction_blocking" $MAIN/alice.log | head -n 1 | cut -f2 -d' ' | cut -f1 -d'.' > $MAIN/start
+  grep "TRACE.*validate_transaction_blocking" $MAIN/alice.log | head -n 1 | cut -f1,2 -d' ' | cut -f1 -d'.' > $MAIN/start
 fi
 
 if [ ! -f $MAIN/end ]; then
-  grep "DEBUG.*validate_transaction_blocking" $MAIN/alice.log | tail -n 1 | cut -f2 -d' ' | cut -f1 -d'.' > $MAIN/end
+  grep "TRACE.*validate_transaction_blocking" $MAIN/alice.log | tail -n 1 | cut -f1,2 -d' ' | cut -f1 -d'.' > $MAIN/end
 fi
 
 
